@@ -1,0 +1,12 @@
+<p>
+  ברוכים הבאים ל shortCut
+</p>
+<form>
+ <span>שם :</span>
+ <input type="text" name="name" [(ngModel)]="user.name"/>
+ <br/>
+ <span>סיסמא :</span>
+ <input type="password" name="password" [(ngModel)]="user.password"/>
+</form>
+<button class="btn" (click)="clickOK()">ok</button>
+<button  (click)="setUser()"  ng-class="exsist === 'true' ? 'red':'btn'" >רישום</button>

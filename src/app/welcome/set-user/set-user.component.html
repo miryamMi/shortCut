@@ -1,0 +1,36 @@
+<h2>טופס הרשמה:</h2>
+<form #form="ngForm" *ngIf="!submitted">
+  <span> שם:</span>
+  <input required name="name" type="text" #nameInput #nameModelInput="ngModel" [(ngModel)]="user.name"/>
+  <br/>
+  <div class="alert alert-danger" *ngIf="nameModelInput.errors">
+      <span *ngIf="nameModelInput.errors.required ">this field is required</span>
+  </div>
+  <span>סיסמא</span>
+  <input required name="password" type="password" #passwordInput #passwordModelInput="ngModel" [(ngModel)]="user.password"/>
+  <br/>
+  <div class="alert alert-danger" *ngIf="passwordModelInput.errors">
+      <span *ngIf="passwordModelInput.errors.required">this field is required</span>
+  </div>
+  <span>מייל</span>
+  <input  name="email" type="email" email  #emailModelInput="ngModel" [(ngModel)]="user.email" />
+  <br/>
+  <div class="alert alert-danger" *ngIf="emailModelInput.errors?.email">
+      Primary Email not valid.
+ </div>
+  <span>טלפון</span>
+  <input [pattern]="mobnumPattern" ng-pattern="/^[7-9][0-9]{9}$/" name="phone" type="text" maxlength="10" #modelInput #phoneModelInput="ngModel" [(ngModel)]="user.phone"/>
+  <br/>
+  <div class="alert alert-danger" *ngIf="phoneModelInput.errors">
+      <span *ngIf="phoneModelInput.errors.maxlength">this field is more than 10 characters</span>
+  </div> 
+  <span>סוג לקוח:</span>
+  <select required name="PermissionTypeID"[(ngModel)]="user.PermissionTypeID">
+      <option value="1" >מנהל</option>
+      <option value="2">לקוח</option>
+  </select>
+  <br/>
+  <input [disabled]="form.invalid" type="submit" (click)="addUser()"/>
+ 
+
+</form>
