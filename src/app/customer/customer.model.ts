@@ -3,6 +3,7 @@ export class Customer {
     password:string;
     email?:string;
     phone?:string;
+    
     constructor(){
     }
 

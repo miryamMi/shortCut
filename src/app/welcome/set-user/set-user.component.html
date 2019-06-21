@@ -1,36 +1,39 @@
 <h2>טופס הרשמה:</h2>
 <form #form="ngForm" *ngIf="!submitted">
-  <span> שם:</span>
-  <input required name="name" type="text" #nameInput #nameModelInput="ngModel" [(ngModel)]="user.name"/>
+  <span> שם</span>
+  <input placeholder="הזן שם מלא" required name="name" type="text" #nameInput #nameModelInput="ngModel" [(ngModel)]="user.name"/>
   <br/>
-  <div class="alert alert-danger" *ngIf="nameModelInput.errors">
+  <div class="alert-danger" *ngIf="nameModelInput.errors">
       <span *ngIf="nameModelInput.errors.required ">this field is required</span>
   </div>
   <span>סיסמא</span>
-  <input required name="password" type="password" #passwordInput #passwordModelInput="ngModel" [(ngModel)]="user.password"/>
+  <input placeholder="הזן סיסמה אישית" required name="password" type="password" #passwordInput #passwordModelInput="ngModel" [(ngModel)]="user.password"/>
   <br/>
   <div class="alert alert-danger" *ngIf="passwordModelInput.errors">
       <span *ngIf="passwordModelInput.errors.required">this field is required</span>
   </div>
   <span>מייל</span>
-  <input  name="email" type="email" email  #emailModelInput="ngModel" [(ngModel)]="user.email" />
+  <input  placeholder="הזן מייל " name="email" type="email" email  #emailModelInput="ngModel" [(ngModel)]="user.email" />
   <br/>
   <div class="alert alert-danger" *ngIf="emailModelInput.errors?.email">
       Primary Email not valid.
  </div>
   <span>טלפון</span>
-  <input [pattern]="mobnumPattern" ng-pattern="/^[7-9][0-9]{9}$/" name="phone" type="text" maxlength="10" #modelInput #phoneModelInput="ngModel" [(ngModel)]="user.phone"/>
+  <input placeholder="הזן ניייד זמין" [pattern]="mobnumPattern" ng-pattern="/^[7-9][0-9]{9}$/" name="phone" type="text" maxlength="10" #modelInput #phoneModelInput="ngModel" [(ngModel)]="user.phone"/>
   <br/>
   <div class="alert alert-danger" *ngIf="phoneModelInput.errors">
       <span *ngIf="phoneModelInput.errors.maxlength">this field is more than 10 characters</span>
   </div> 
-  <span>סוג לקוח:</span>
-  <select required name="PermissionTypeID"[(ngModel)]="user.PermissionTypeID">
-      <option value="1" >מנהל</option>
-      <option value="2">לקוח</option>
-  </select>
+  <span>מנהל</span>
+   <input required value="1"  name="PermissionTypeID" type="radio" [(ngModel)]="user.PermissionTypeID" >
+   <span>לקוח</span>
+   <input  required value="2" name="PermissionTypeID" type="radio" [(ngModel)]="user.PermissionTypeID" >
+
   <br/>
-  <input [disabled]="form.invalid" type="submit" (click)="addUser()"/>
+  <input class="submit"  [disabled]="form.invalid" type="submit" (click)="addUser()"/>
  
 
+  <!-- <p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue"></p-radioButton>
+  <p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue"></p-radioButton>
+   -->
 </form>

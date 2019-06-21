@@ -9,10 +9,13 @@ import { Observable } from 'rxjs';
 export class WelcomeService {
 
   constructor(private _http :HttpClient) { }
-
    //פונקציה לזיהוי משתמש וכניסה למערכת
-        enterToPersonalSection(user:User):Observable<Injectable>{
-          return this._http.get<Injectable>("/api/User/?name="+ user.name  )
+      enterToPersonalSection(user:User):Observable<Injectable>{
+         localStorage.setItem('name',user.name);
+        localStorage.setItem('password',user.password);
+
+          return this._http.get<Injectable>("/api/User/?name="+ user.name)
+          
       }
 
         // //רישום לקוח חדש
@@ -20,4 +23,5 @@ export class WelcomeService {
       {
         return this._http.post<boolean>("/api/User/",user );
       }
-}
+     
+     }

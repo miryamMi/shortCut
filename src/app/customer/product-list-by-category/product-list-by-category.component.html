@@ -1,0 +1,19 @@
+<body>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<p>
+  product-list-by-category works!
+</p> 
+<i class="fa fa-search" style="font-size: 30px"></i>
+<input name="findProduct" type="text"  placeholder="חיפוש" (input)="find()" [(ngModel)]="findProduct"/>
+ <select  name="product" (change)="onAddToList()"  [(ngModel)] = "product" multiple class="list-group" >
+   <option *ngFor =" let p of  productArrToShow  "  [ngValue]="p" class="list-group-item">{{p.ProductName}} </option>
+ </select>
+
+<!-- <div *ngIf="filterProductArr.length != 0">
+ <select  name="product" (change)="onAddToList()"  [(ngModel)] = "product" multiple class="list-group" >
+  <option *ngFor =" let p of filterProductArr  "  [ngValue]="p" class="list-group-item">{{p.ProductName}} </option>
+</select>
+</div> -->
+ <button  (click)="onClose()" class="btn-close">x</button>
+</body>

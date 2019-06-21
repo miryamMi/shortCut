@@ -18,6 +18,6 @@ export class SetUserComponent implements OnInit {
   addUser(){ 
    alert(this.user.PermissionTypeID);
    debugger;
-   this._WelcomeService.addUserToServer(this.user).subscribe(x=>alert(x));
+   this._WelcomeService.addUserToServer(this.user).subscribe((x:boolean)=>alert(x));
   }
 }

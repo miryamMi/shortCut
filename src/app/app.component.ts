@@ -9,10 +9,7 @@ import { observable, Observable, Subject } from 'rxjs';
 export class AppComponent{
     title:string="hello world!!!!!!!!!!!!";
     direction:Subject<boolean>=new Subject();
-//import it
 
-
-//inside export class
 
 arrayBuffer:any;
 file:File;

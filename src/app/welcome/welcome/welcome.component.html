@@ -1,12 +1,17 @@
-<p>
+<body>
+<h1>
   ברוכים הבאים ל shortCut
-</p>
-<form>
- <span>שם :</span>
+</h1>
+<form >
+ <span>שם </span>
  <input type="text" name="name" [(ngModel)]="user.name"/>
  <br/>
- <span>סיסמא :</span>
+ <span>סיסמא </span>
  <input type="password" name="password" [(ngModel)]="user.password"/>
 </form>
-<button class="btn" (click)="clickOK()">ok</button>
-<button  (click)="setUser()"  ng-class="exsist === 'true' ? 'red':'btn'" >רישום</button>
+<div class=buttens>
+<button class=" btn btn_LogIn
+" (click)="clickOK()">התחבר</button>
+<button  class=" btn btn_set " (click)="setUser()"  >הרשם</button>
+</div>
+</body>

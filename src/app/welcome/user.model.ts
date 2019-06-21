@@ -1,4 +1,5 @@
 export class User {
+    UserID :number;
     name:string="";
     password:string;
     email?:string;

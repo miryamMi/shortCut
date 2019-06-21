@@ -1,0 +1,24 @@
+  form{
+      display:  flex;
+      flex-direction: column;
+       width: 70vw;
+       margin: auto;
+       height: 70vh;
+  }
+  input{
+      width: 70%;
+      height: 5%;
+      align-items: center;
+      margin: auto;
+  }
+   span{
+     width: 20vw;
+     display: block;
+     margin-right: 11vw;
+   }
+  .submit
+  {
+    width: 10%;
+    margin: auto;
+    margin-right: 22vw;
+  }

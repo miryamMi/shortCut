@@ -1,11 +1,17 @@
 <h1>ברוך הבא ל:{{name}}</h1>
-
-
-<input name="product" [(ngModel)]="product"/>
-<select class="product-grp" [(ngModel)]="productArr" >
-  <option class="item-product-grp" *ngFor="let product of productArr">{{product}}</option>
-</select>
-<!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-    <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
-  </cdk-virtual-scroll-viewport> -->
-<button (click)="editList()">ערוך רשימה </button>
+  <div class="categoryBtn">
+  <button (click)="getProductByCategory('1')">מוצרי חלב</button>
+  <button (click)="getProductByCategory('2')">לחם</button>
+  <button (click)="getProductByCategory('1')">מוצרי חלב</button>
+  <button (click)="getProductByCategory('2')">לחם</button>
+  <button (click)="getProductByCategory('1')">מוצרי חלב</button>
+  <button (click)="getProductByCategory('2')">לחם</button>
+ </div>
+  <div>
+    <ul>
+      <li *ngFor="let p of productToShow">
+        {{p}}
+      </li>
+    </ul>
+  </div>
+<app-product-list-by-category (AddProductToList)="onAddProductToList($event)" (ClickClose)="closeProductList()"[productArr]="productArr" *ngIf="flag==true"></app-product-list-by-category>

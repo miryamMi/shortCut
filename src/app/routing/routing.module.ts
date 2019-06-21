@@ -8,7 +8,7 @@ import { SetUserComponent } from '../welcome/set-user/set-user.component';
 
 const APP_ROUTES:Route[]=[
   {path:"setUser",component:SetUserComponent},
-  {path:"customerList/:name",component:CustomerListComponent},
+  {path:"customerList/:name",loadChildren:"../customer/customer.module#customerModule"},
   {path: "",pathMatch:"full",component:WelcomeComponent}
 ]
 @NgModule({

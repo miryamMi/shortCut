@@ -1,3 +1,36 @@
-.red{
-    background-color: red;
+ body{
+     display: flex;
+  flex-direction: column ;
+}
+ form{
+      display: flex;
+      flex-direction: column;   
+       margin: auto;
+     
+       width: 40vw;
+     margin-top:  50vh;
+ }
+   h1{
+       margin: auto;
+       width: 30vw;
+   }
+   input{
+       width: 30vw;
+   }
+.buttens{
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin: auto;
+}
+
+   .btn{
+    align-items: center;
+
+       width: 10vw;
+       height: 5vh;
+  }
+.btn_set{
+    background-color: brown;
+
 }
