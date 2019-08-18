@@ -6,6 +6,7 @@
   
   .example-item {
     height: 50px;
+    background-color: aliceblue;
   }
 .categoryBtn{
     display: -webkit-flex;
