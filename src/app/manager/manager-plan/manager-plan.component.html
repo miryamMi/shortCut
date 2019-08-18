@@ -1,0 +1,15 @@
+<div *ngIf="true">
+  <img width="250" height="100" src="../../../assets/img/logo.png" />
+
+  <form #form="ngForm" class="  p-grid p-dir-col">
+    <label for="name" class="p-col-13 p-md-7 p-lg-6 p-col-align-center">שם חנות</label>
+    <input name="name" pInputText class="p-col-13 p-md-7 p-lg-6 p-col-align-center" required placeholder="הזן שם חנות"
+      name="shopName" type="text" [(ngModel)]="shopName" pInputText />
+
+    <input type="file" class="p-col-13 p-md-7 p-lg-6 p-col-align-center" #fubauto mode="basic" name="demo[]"
+      accept=".DWG" (onSelect)="onUpload($event)" />
+    <input class="ui-button-raised   p-col-13 p-md-7 p-lg-1 p-col-align-center" [disabled]="form.invalid"
+      (click)="saveDate()" type="submit" value="אישור" />
+  </form>
+</div>
+<!-- <button type="button" (click)="show()" pButton icon="pi pi-info-circle" label="Show"></button> -->

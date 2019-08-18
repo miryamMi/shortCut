@@ -1,0 +1,9 @@
+<button pButton (click)="openNewShop()">חנות חדשה</button>
+
+<p-dropdown optionLabel="Name" (onChange)="selectShop()" [showClear]="true" placeholder="בחר חנות " [options]="shopList"
+    [(ngModel)]="selectedShop" [style]="{'width':'150px'}">
+    <ng-template let-item pTemplate="shopList">
+        <span style="vertical-align:middle">{{item.Name}}</span>
+    </ng-template>
+
+</p-dropdown>

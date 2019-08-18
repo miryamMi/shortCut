@@ -1,0 +1,12 @@
+<span class="Loginh2">התחבר אלינו</span>
+<form class="formLogin" p-grid p-dir-col>
+  <span>שם </span>
+  <input class="p-col" placeholder="הזן שם מלא" type="text" name="name" [(ngModel)]="user.name" pInputText />
+  <br />
+  <span>סיסמא </span>
+  <input class="p-col" placeholder="הזן סיסמא" type="text" name="password" pPassword [(ngModel)]="user.password" />
+  <div class="buttens">
+    <button class="btn_LogIn " (click)="login()">התחבר</button>
+    <button class="btn_set " (click)="setUser()">הרשם</button>
+  </div>
+</form>

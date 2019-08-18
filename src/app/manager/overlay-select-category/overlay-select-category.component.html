@@ -1,0 +1,9 @@
+<p-orderList [value]="categories" [listStyle]="{'height':'350px'} " [style]="{'width': '100%'}">
+    <ng-template let-c pTemplate=" item">
+        <div class="ui-helper-clearfix">
+            <button class="btnC" (click)="selectCar(c)"
+                style="font-size:14px;float:right;margin:15px 5px 0 0">{{c.CategoryName}}
+            </button>
+        </div>
+    </ng-template>
+</p-orderList>

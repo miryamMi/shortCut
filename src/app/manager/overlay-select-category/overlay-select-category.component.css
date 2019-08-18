@@ -1,0 +1,15 @@
+.btnC{
+    height: 45px;
+    border: none;
+    width: 100%;
+    background-color: beige;
+     margin: 0;
+}
+ui-orderlist{
+  background-color: aqua;
+}
+
+ ui-orderlist-controls 
+ {
+     display:none;
+ }
