@@ -8,20 +8,19 @@ import { Observable } from 'rxjs';
 })
 export class WelcomeService {
 
-  constructor(private _http :HttpClient) { }
-   //פונקציה לזיהוי משתמש וכניסה למערכת
-      enterToPersonalSection(user:User):Observable<Injectable>{
-         localStorage.setItem('name',user.name);
-        localStorage.setItem('password',user.password);
+  constructor(private _http: HttpClient) { }
+  //פונקציה לזיהוי משתמש וכניסה למערכת
+  enterToPersonalSection(user: User): Observable<number> {
+    localStorage.setItem('name', user.name);
+    localStorage.setItem('password', user.password);
+    debugger;
+    return this._http.post<number>("api/User/IsCustomerExists", user)
 
-          return this._http.get<Injectable>("/api/User/?name="+ user.name)
-          
-      }
+  }
+ 
+  // //רישום לקוח חדש
+  addUserToServer(user: User): Observable<number> {
+    return this._http.post<number>("/api/User/", user);
+  }
 
-        // //רישום לקוח חדש
-      addUserToServer(user:User):Observable<boolean>
-      {
-        return this._http.post<boolean>("/api/User/",user );
-      }
-     
-     }
+}

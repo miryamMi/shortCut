@@ -1,17 +1,8 @@
 <body>
-<h1>
-  ברוכים הבאים ל shortCut
-</h1>
-<form >
- <span>שם </span>
- <input type="text" name="name" [(ngModel)]="user.name"/>
- <br/>
- <span>סיסמא </span>
- <input type="password" name="password" [(ngModel)]="user.password"/>
-</form>
-<div class=buttens>
-<button class=" btn btn_LogIn
-" (click)="clickOK()">התחבר</button>
-<button  class=" btn btn_set " (click)="setUser()"  >הרשם</button>
-</div>
+  <header></header>
+
+  <img width="333" height="120" src="../../../assets/img/logo.png" />
+  <img width="400" height="300" src="../../../assets/img/אנימציה.png" />
+  <button  class="btn_login"(click)="showOverlayLoginComponent()">login</button>
+
 </body>

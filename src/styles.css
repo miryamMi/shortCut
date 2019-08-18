@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
- header{
+ /* header{
      width: 100vw;
      height: 5vh;
      background: linear-gradient(90deg, brown  30%,black 40%);
     }
- 
+  */
 body{
 
     direction: rtl;
 }
+@media only screen and (max-width: 320px) {
+
+    body { 
+       font-size: 2em; 
+    }
+ 
+ }

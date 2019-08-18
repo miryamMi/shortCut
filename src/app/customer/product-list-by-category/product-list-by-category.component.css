@@ -1,13 +1,18 @@
 body{
-    z-index: 20;
-    position: absolute;
-    top:0;
-    left: 0;
-     background-color: chocolate;
+     z-index: 20;
+     position: absolute;
+      top:0;
+      left: 0;
+      background-color: chocolate;
       width: 60%;
+      height: 80vh;
+}
+.select{
+    height: 50vh;
 }
 .btn-close{
+    position: relative;
+    top:437px;
+    left: 511px;
     text-align: center;
-    width: 70%;margin: 
-    auto;padding-top: 60%
 }

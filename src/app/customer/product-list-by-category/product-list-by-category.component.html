@@ -6,7 +6,7 @@
 </p> 
 <i class="fa fa-search" style="font-size: 30px"></i>
 <input name="findProduct" type="text"  placeholder="חיפוש" (input)="find()" [(ngModel)]="findProduct"/>
- <select  name="product" (change)="onAddToList()"  [(ngModel)] = "product" multiple class="list-group" >
+ <select class="select"  name="product" (change)="onAddToList()"  [(ngModel)] = "product" multiple class="list-group" >
    <option *ngFor =" let p of  productArrToShow  "  [ngValue]="p" class="list-group-item">{{p.ProductName}} </option>
  </select>
 

@@ -1,4 +1,54 @@
+  
   form{
+     font-size: 1.3em;
+  }
+  .logo{
+    width: 30vw;
+    height: 16vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+     margin: auto;
+    margin-top: 5vh;
+  }
+  body .ui-inputtext{
+    font-size: 18px;
+  }
+  
+  body .ui-radiobutton .ui-radiobutton-box{
+    border-radius: 0%;
+   margin: 0%;
+  }
+  body .ui-button.ui-button-raised {
+    background-color: #e80b00;
+  }
+   span{
+    color: #e80b00; 
+     font-size: 0.9em;
+   }
+   
+   /* .ui-radiobutton .ui-radiobutton-box {
+    height: 30px !important;
+    width: 30px !important;
+  } */
+/*   
+  .ui-icon-bullet {
+    background: none;
+  } */
+  
+  .ui-radiobutton .ui-state-active {
+    background: url("../../../assets/img/vi.png")  center center no-repeat
+      !important;
+  }
+  /* body .ui-radiobutton .ui-radiobutton-box.ui-state-active{
+     background-color: blueviolet;
+  } */
+  /* body .ui-radiobutton .ui-radiobutton-box .ui-radiobutton-icon{
+      
+    } */
+
+  
+  /* form{
       display:  flex;
       flex-direction: column;
        width: 70vw;
@@ -21,4 +71,4 @@
     width: 10%;
     margin: auto;
     margin-right: 22vw;
-  }
+  } */

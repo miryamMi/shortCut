@@ -1,17 +1,61 @@
+<p-pickList [source]="list1" [target]="list2" sourceHeader="רשימת מוצרים" targetHeader="הרשימה שלי " [responsive]="true"
+  filterBy="ProductName" dragdrop="true" sourceFilterPlaceholder="Search by ProductName"
+  targetFilterPlaceholder="Search by ProductName" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}">
+  <ng-template let-c pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{c.ProductName}}</div>
+    </div>
+  </ng-template>
+</p-pickList>
 <h1>ברוך הבא ל:{{name}}</h1>
-  <div class="categoryBtn">
+
+<!-- <div class="categoryBtn">
   <button (click)="getProductByCategory('1')">מוצרי חלב</button>
   <button (click)="getProductByCategory('2')">לחם</button>
   <button (click)="getProductByCategory('1')">מוצרי חלב</button>
   <button (click)="getProductByCategory('2')">לחם</button>
   <button (click)="getProductByCategory('1')">מוצרי חלב</button>
   <button (click)="getProductByCategory('2')">לחם</button>
- </div>
-  <div>
-    <ul>
-      <li *ngFor="let p of productToShow">
-        {{p}}
-      </li>
-    </ul>
-  </div>
-<app-product-list-by-category (AddProductToList)="onAddProductToList($event)" (ClickClose)="closeProductList()"[productArr]="productArr" *ngIf="flag==true"></app-product-list-by-category>
+</div> -->
+<div>
+  <ul>
+    <li *ngFor="let p of productToShow">
+      {{p}}
+    </li>
+  </ul>
+</div>
+
+<button (click)="saveList()">שמור רשימה</button>
+<!-- <button (click)="chooseShop()">בחר חנות</button> -->
+<!-- <p-menu #menu [popup]="true" [model]="items.label"></p-menu> -->
+<p-overlayPanel #op>
+  <p-orderList [value]="shopList">
+    <ng-template let-s pTemplate="item">
+      <div class="ui-helper-clearfix">
+        <button class="btn" (click)="selectShop(s.Name)"
+          style="font-size:14px;float:right;margin:15px 5px 0 0">{{s.Name}}
+        </button>
+      </div>
+    </ng-template>
+  </p-orderList>
+</p-overlayPanel>
+
+<button type="text" pButton label="בחר חנות" (click)="op.toggle($event)"></button>
+<!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
+
+<app-product-list-by-category (AddProductToList)="onAddProductToList($event)" (ClickClose)="closeProductList()"
+  [productArr]="productArr" *ngIf="flag==true"></app-product-list-by-category>
+<div class="a  p-grid p-dir-row">
+  <button p-row-5 class="btnLeft" (click)="moveLeft()"><i class="pi pi-angle-right" style="font-size: 2em"></i></button>
+  <drag-scroll p-row-13 #nav>
+    <button pButton class="btnCategory" drag-scroll-item (click)="getProductByCategory('1')">מוצרי חלב</button>
+    <button pButton class="btnCategory" drag-scroll-item (click)="getProductByCategory('2')">לחם</button>
+    <button pButton class="btnCategory" drag-scroll-item (click)="getProductByCategory('1')">מוצרי חלב</button>
+    <button pButton class="btnCategory" drag-scroll-item (click)="getProductByCategory('1')">מוצרי חלב</button>
+    <button pButton class="btnCategory" drag-scroll-item (click)="getProductByCategory('2')">לחם</button>
+    <button pButton class="btnCategory" drag-scroll-item (click)="getProductByCategory('1')">מוצרי חלב</button>
+  </drag-scroll>
+
+  <button p-row-5 class="btnRight" (click)="moveRight()"><i class="pi pi-angle-left" style="font-size: 2em"></i></button>
+</div>
+<!-- <button pButton (click)="moveTo(2)">Last</button> -->

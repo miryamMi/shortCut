@@ -6,29 +6,48 @@ import { Product } from './product.model';
 import { User } from '../welcome/user.model';
 import { WelcomeService } from '../welcome/welcome.service';
 import { stringify } from 'querystring';
+import { Shop } from './customer-list/shop.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpCustomerService {
 
-  constructor(private _http :HttpClient,private _httpUser:WelcomeService) { }
- 
- getProuducts(productName:String): Observable<JSON> {
-        return this._http.post<JSON>("https://api.superget.co.il", 
-            'api_key=124fdbd5ecda994764b93ddc109d64b884f08556&action=GetProductsByName&product_name='+productName+'&limit=10', 
-            { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' } })
-               
+  constructor(private _http: HttpClient, private _httpUser: WelcomeService) { }
+
+  //קבלת מוצרים לפי קטגוריה
+  getProductByCategoryFromServer(Categoryid: string): Observable<Product[]> {
+    return this._http.get<Product[]>("api/Customer/?categoryId=" + Categoryid);
+  }
+  name: String;
+  nameCustomerAndProduct: NameCustomerAndProduct;
+  //הוספת מוצר לרשימת קניות של לקוח
+  addProductToCustomerList(ListproductId: number[]): Observable<boolean> {
+    this.nameCustomerAndProduct = {
+      customerName: localStorage.getItem('userId').toString(),
+      ProductID: ListproductId
     }
-    getProductByCategoryFromServer(Categoryid:string): Observable<Product[]>
-    {
-      return this._http.get<Product[]>("api/Customer/?categoryId="+Categoryid);
-    }
-     name:String;
-     nameCustomerAndProduct:object;
-    addProductToCustomerList(barCode:string):Observable<boolean>{
-     this.nameCustomerAndProduct ={customerName:localStorage.getItem('name').toString(),ProductBarCode:barCode}
+    return this._http.post<boolean>("/api/Customer/", this.nameCustomerAndProduct);
+  }
+  //קבלת רשימת קניות של לקוח
+  getListOfCustomer(customerId: number): Observable<Product[]> {
+    return this._http.get<Product[]>("api/Customer/?customerId=" + customerId);
+  }
+  //קבלת רשימת חנויות
+  getShopList(): Observable<Shop[]> {
+
+    return this._http.get<Shop[]>("api/Customer/")
+  }
   
-     return this._http.post<boolean>("/api/Customer/",this.nameCustomerAndProduct);
-    }
+
+}
+export class NameCustomerAndProduct {
+
+  customerName: string;
+  ProductID: number[];
+
+  constructor() {
+  }
+
+
 }

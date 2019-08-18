@@ -1,39 +1,47 @@
-<h2>טופס הרשמה:</h2>
-<form #form="ngForm" *ngIf="!submitted">
-  <span> שם</span>
-  <input placeholder="הזן שם מלא" required name="name" type="text" #nameInput #nameModelInput="ngModel" [(ngModel)]="user.name"/>
-  <br/>
-  <div class="alert-danger" *ngIf="nameModelInput.errors">
-      <span *ngIf="nameModelInput.errors.required ">this field is required</span>
-  </div>
-  <span>סיסמא</span>
-  <input placeholder="הזן סיסמה אישית" required name="password" type="password" #passwordInput #passwordModelInput="ngModel" [(ngModel)]="user.password"/>
-  <br/>
-  <div class="alert alert-danger" *ngIf="passwordModelInput.errors">
-      <span *ngIf="passwordModelInput.errors.required">this field is required</span>
-  </div>
-  <span>מייל</span>
-  <input  placeholder="הזן מייל " name="email" type="email" email  #emailModelInput="ngModel" [(ngModel)]="user.email" />
-  <br/>
-  <div class="alert alert-danger" *ngIf="emailModelInput.errors?.email">
-      Primary Email not valid.
- </div>
-  <span>טלפון</span>
-  <input placeholder="הזן ניייד זמין" [pattern]="mobnumPattern" ng-pattern="/^[7-9][0-9]{9}$/" name="phone" type="text" maxlength="10" #modelInput #phoneModelInput="ngModel" [(ngModel)]="user.phone"/>
-  <br/>
-  <div class="alert alert-danger" *ngIf="phoneModelInput.errors">
-      <span *ngIf="phoneModelInput.errors.maxlength">this field is more than 10 characters</span>
-  </div> 
-  <span>מנהל</span>
-   <input required value="1"  name="PermissionTypeID" type="radio" [(ngModel)]="user.PermissionTypeID" >
-   <span>לקוח</span>
-   <input  required value="2" name="PermissionTypeID" type="radio" [(ngModel)]="user.PermissionTypeID" >
+<img class="logo" src="    ../../../assets/img/logo.png" />
+<form #form="ngForm" *ngIf="!submitted" class="  p-grid p-dir-col">
+  <label for="name" class="p-col-13 p-md-7 p-lg-6 p-col-align-center"> שם</label>
+  <input pInputText class="p-col-13 p-md-7 p-lg-6 p-col-align-center" placeholder="הזן שם מלא" required name="name"
+    type="text" #nameInput #nameModelInput="ngModel" [(ngModel)]="user.name" />
 
-  <br/>
-  <input class="submit"  [disabled]="form.invalid" type="submit" (click)="addUser()"/>
- 
+  <div class="p-col-13 p-md-7 p-lg-6 p-col-align-center"
+    *ngIf="nameModelInput.invalid && (nameModelInput.dirty || nameModelInput.touched)">
+    <span *ngIf="nameModelInput.errors.required ">מלא שדה חובה</span>
+  </div>
+  <label for="password" class="p-col-13 p-md-7 p-lg-6 p-col-align-center ">סיסמא</label>
+  <input pInputText type="password" class="p-col-13 p-md-7 p-lg-6 p-col-align-center " placeholder="הזן סיסמה אישית"
+    required name="password" type="password" #passwordInput #passwordModelInput="ngModel" [(ngModel)]="user.password" />
+  <div class="p-col-13 p-md-7 p-lg-6 p-col-align-center"
+    *ngIf="passwordModelInput.invalid && (passwordModelInput.dirty || passwordModelInput.touched)">
+    <span *ngIf="passwordModelInput.errors.required">מלא שדה חובה</span>
+  </div>
+  <label for="email" class="p-col-13 p-md-7 p-lg-6 p-col-align-center ">מייל</label>
+  <input pInputText class=" p-col-13 p-md-7 p-lg-6 p-col-align-center " placeholder="הזן מייל " name="email"
+    type="email" email #emailModelInput="ngModel" [(ngModel)]="user.email" />
+  <span class="p-col-13 p-md-7 p-lg-6 p-col-align-center" *ngIf="emailModelInput.errors?.email">
+    אימייל לא חוקי
+  </span>
+  <label for="phone" class="p-col-13 p-md-7 p-lg-6 p-col-align-center ">טלפון</label>
+  <input pInputText class=" p-sm-1 p-col-13 p-md-7 p-lg-6  p-col-align-center" placeholder="הזן ניייד זמין"
+    [pattern]="mobnumPattern" ng-pattern="/^[7-9][0-9]{9}$/" name="phone" type="text" maxlength="10" #modelInput
+    #phoneModelInput="ngModel" [(ngModel)]="user.phone" />
+  <div class="p-col-13 p-md-7 p-lg-6 p-col-align-center" *ngIf="phoneModelInput.errors">
+  </div>
+  <div class="  p-justify-between p-grid p-dir-row p-row-13 p-md-7 p-lg-6 p-col-align-center">
+    <div>
+      <p-radioButton class="p-row-4 p-md-2 p-lg-1   " required name="PermissionTypeID" value="1"
+        [(ngModel)]="user.PermissionTypeID"></p-radioButton>
+      <label class="p-row-4 p-md-2 p-lg-1" for="PermissionTypeID">מנהל</label>
+    </div>
+    <div>
+      <label class="p-row-4 p-md-2 p-lg-1" for="PermissionTypeID">לקוח</label>
+      <p-radioButton class="p-row-4 p-md-2 p-lg-1 p-col-align-center" required name="PermissionTypeID" value="2"
+        [(ngModel)]="user.PermissionTypeID"></p-radioButton>
+    </div>
+  </div>
+  <br />
+  <input pButton value="התחבר" class="ui-button-raised   p-col-13 p-md-7 p-lg-1 p-col-align-center"
+    [disabled]="form.invalid" type="submit" (click)="addUser()" />
 
-  <!-- <p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue"></p-radioButton>
-  <p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue"></p-radioButton>
-   -->
+
 </form>
